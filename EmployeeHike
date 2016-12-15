@@ -1,0 +1,105 @@
+public class DetailsOfEmp {
+
+public class ass {
+
+ @Override
+ public String toString() {
+ return "ass [getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()+ "]";
+ }
+
+ public static void main(String[] args) {
+
+ int sum = 0;
+ DetailsOfEmp[] detaisofemplist = new DetailsOfEmp[4];
+ int c = 0;
+
+ EmployeeHikeDetails[] employehikes = new EmployeeHikeDetails[]{
+ new EmployeeHikeDetails(300, "Engineer"),
+ new EmployeeHikeDetails(1000, "TeamLead")
+ };
+
+ sum = Integer.parseInt(args[0]);
+
+ if(args.length == (sum*4 + 1)){
+
+ for(int i = 1; i< args.length; i = i + 4){
+
+ int id = Integer.parseInt(args[i]);
+ String name = args[i+1];
+ int salary = Integer.parseInt(args[i+2]);
+ String emplyeedesig = args[i+3];
+ if(emplyeedesig.compareTo(employehikes[0].getDesig()) == 0){
+ DetailsOfEmp list = new DetailsOfEmp(id, name, emplyeedesig,salary, employehikes[0].getHike(), employehikes[0].getHike() + salary);
+ detaisofemplist[c++] = list;
+ }else if(emplyeedesig.compareTo(employehikes[1].getDesig()) == 0){
+ DetailsOfEmp list = new DetailsOfEmp(id, name, emplyeedesig,salary, employehikes[0].getHike(), employehikes[1].getHike() + salary);
+ detaisofemplist[c++] = list;
+ }
+
+
+ }
+    
+ }
+// for(String s:args){
+// System.out.println(s);
+// 
+// }
+
+ for(int i = 0 ; i< sum;i++){
+
+     System.out.println("***************************************************");
+ System.out.println("Employee ID: " + detaisofemplist[i].id + "\n" 
+ + "Employee Name :" + detaisofemplist[i].name + "\n" 
+ + "Employee Designation :" + detaisofemplist[i].desig +"\n" 
+ + "Employee Salary :" + detaisofemplist[i].salary  + "\n"
+ + "Employee New Salary :" + detaisofemplist[i].newSalar  );
+ System.out.println("***************************************************");
+ }
+
+
+ }
+
+}
+
+ int id;
+ String name;
+ int salary;
+ String desig;
+ int hike;
+ int newSalar;
+
+ public DetailsOfEmp(int id, String name,  String desig, int salary, int hike, int newSalary){
+
+ this.id = id;
+ this.name = name;
+ this.salary = salary;
+ this.desig = desig;
+ this.hike = hike;
+ this.newSalar = newSalary;
+ }
+ }
+
+public class EmployeeHikeDetails {
+
+
+ private int employeehike;
+ private String employeedesig;
+ public int getHike() {
+ return employeehike;
+ }
+ public void setHike(int hike) {
+ this.employeehike = hike;
+ }
+ public String getDesig() {
+ return employeedesig;
+ }
+ public void setDesig(String desig) {
+ this.employeedesig = employeedesig;
+ }
+
+ public EmployeeHikeDetails(int  employeehike, String employeedesig){
+
+  this.employeehike = employeehike;
+  this.employeedesig = employeedesig;
+ }
+ }
